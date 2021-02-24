@@ -1,0 +1,53 @@
+html,body{
+    margin:0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#BloqueCentrado{
+    background: whitesmoke;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    text-align: center;
+}
+
+#ValorX{
+    color: red;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+#CentrarSpan{
+    text-align: center;
+}
+
+#cerrarSpan{
+    word-wrap: break-word;
+    width: 485px;
+}
+
+#NumeroValido{
+    letter-spacing: 2.5px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    width: 50%;
+    background-color: #d8b79a;
+}
+
+.Valido{
+    background-color: green;
+    color: white;
+}
+
+.NoValido{
+    background-color: red;
+    color: white;
+}

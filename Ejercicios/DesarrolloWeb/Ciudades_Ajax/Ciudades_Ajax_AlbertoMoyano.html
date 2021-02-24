@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- scripts externos -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+	<header>
+		<h2>consulta clima de ciudades </h2>
+	</header>
+	<form method="GET">
+		<label>Clima en tu ciudad</label>
+		<input type="text" name="Ciudades" onblur="getTiempo()" id="Ciudades" />
+		<div id="DatosCiudad"></div>
+		</from>
+
+		<script type="text/javascript">
+	
+			function getTiempo() {
+				var ciudad = $("#Ciudades").val();
+				var Pid = "";
+				jQuery.ajax({
+					url: 'https://api.openweathermap.org/data/2.5/weather?q=' + ciudad + "&units=metric&appid=94b5bb27e9c032260a3698678dec1153&lang=es",
+					type: 'GET',
+					success: function (data) {
+						var funcion = MostrarResultados(data);
+						$('#DatosCiudad').html(funcion);
+					}
+
+				});
+			}
+
+			function MostrarResultados(data) {
+				var frase = "";
+				frase += "<p>METEOROLÓGICA EN " + data.name + "</p>";
+				frase += "<p>El Tiempo " + data.weather[0].description + "</p>";
+				frase += "<p>Temperatura " + data.main.temp + "Cº</p>";
+				frase += "<p>Maximas " + data.main.temp_max + "Cº</p>";
+				frase += "<p>Minimas " + data.main.temp_min + "Cº</p>";
+				frase += "<p>Humedad " + data.main.humidity + " % </p>";
+				frase += "<p>Viento " + data.wind.speed + "km/h </p>";
+
+				return frase;
+			}
+		</script>
+</body>
+
+</html>
